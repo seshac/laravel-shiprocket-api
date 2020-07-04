@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Sketch Test Suite">
+        <testsuite name="Shiprocket Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

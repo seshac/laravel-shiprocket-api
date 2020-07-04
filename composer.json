@@ -1,22 +1,24 @@
 {
-    "name": "sesha/:package_name",
-    "description": ":package_description",
+    "name": "seshac/laravel-shiprocket-api",
+    "description": "Integration of Shiprocket API in your laravel application is easy, This package enables you to utilize most of your Shiprocket functions.",
     "keywords": [
         "sesha",
-        ":package_name"
+        "laravel Shiprcoker Api",
+        "Laravel Shiprocker Wrapper",
+        "Shiprocket Api"
     ],
-    "homepage": "https://github.com/sesha/:package_name",
+    "homepage": "https://github.com/seshac/laravel-shiprocket-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://sesha.dev",
+            "name": "Sesha",
+            "email": "seshadriece008@gmail.com",
+            "homepage": "https://github.com/seshac",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4"
+        "php": "^7.3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -27,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Sketch\\Sketch\\": "src"
+            "Seshac\\Shiprocket\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sketch\\Sketch\\Tests\\": "tests"
+            "Seshac\\Shiprocket\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sketch\\Sketch\\SketchServiceProvider"
+                "Shiprocket\\Shiprocket\\ShiprocketServiceProvider"
             ],
             "aliases": {
-                "Sketch": "Sketch\\Sketch\\SketchFacade"
+                "Shiprocket": "Shiprocket\\Shiprocket\\Shiprocket"
             }
         }
     },

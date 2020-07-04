@@ -1,9 +1,9 @@
 <?php
 
-namespace Sesha\Sketch\Tests;
+namespace Seshac\Shiprocket\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Sesha\Sketch\SketchServiceProvider;
+use Seshac\Shiprocket\ShiprocketServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -17,22 +17,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            SketchServiceProvider::class,
+            ShiprocketServiceProvider::class,
         ];
-    }
-
-    public function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
-
-        /*
-        include_once __DIR__.'/../database/migrations/sketch.php.stub';
-        (new \CreatePackageTable())->up();
-        */
     }
 }

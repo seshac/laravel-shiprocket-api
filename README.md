@@ -1,19 +1,15 @@
-# :package_description
+# Integration of Shiprocket API in your laravel application is easy, This package enables you to utilize most of your Shiprocket functions.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sesha/:package_name.svg?style=flat-square)](https://packagist.org/packages/sesha/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sesha/:package_name/run-tests?label=tests)](https://github.com/sesha/:package_name/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/sesha/:package_name.svg?style=flat-square)](https://packagist.org/packages/sesha/:package_name)
-
-**Note:** Replace ```:author_name``` ```:author_username``` ```:author_email``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can also run `configure-sketch.sh` to do this automatically.
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sesha/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sesha/laravel-shiprocket-api/run-tests?label=tests)](https://github.com/sesha/laravel-shiprocket-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/sesha/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require sesha/package-sketch-laravel
+composer require seshac/laravel-shiprocket-api
 ```
 
 You can publish and run the migrations with:
