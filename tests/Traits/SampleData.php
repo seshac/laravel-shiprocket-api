@@ -9,17 +9,17 @@ trait SampleData
     public function sampleOrder($pickupLocation)
     {
         return  [
-            'order_id' => 224477,
-            'order_date' => $this->faker->dateTime($max = 'now', $timezone = null),
-            'pickup_location' => '',
+            'order_id' => $this->faker->numberBetween(100,100000),
+            'order_date' => $this->faker->date('Y-m-d',  'now'),
+            'pickup_location' => $pickupLocation,
             'channel_id' => '',
             'comment' => '',
             'reseller_name' => '',
             'company_name' => '',
             'billing_customer_name' => $this->faker->name,
             'billing_last_name' => '',
-            'billing_address' => '',
-            'billing_address_2' => '',
+            'billing_address' => $this->faker->streetName . ',' .$this->faker->streetAddress,
+            'billing_address_2' => $this->faker->secondaryAddress,
             'billing_isd_code' => '',
             'billing_city' => $this->faker->city,
             'billing_pincode' => 110002,
