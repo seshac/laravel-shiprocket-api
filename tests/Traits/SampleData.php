@@ -9,7 +9,7 @@ trait SampleData
     public function sampleOrder($pickupLocation)
     {
         return  [
-            'order_id' => $this->faker->numberBetween(100,100000),
+            'order_id' => $this->faker->numberBetween(100, 100000),
             'order_date' => $this->faker->date('Y-m-d',  'now'),
             'pickup_location' => $pickupLocation,
             'channel_id' => '',
@@ -78,6 +78,16 @@ trait SampleData
             'state' => 'Maharashtra',
             'country' => 'India',
             'pin_code' => '110022',
+        ];
+    }
+
+    public function sampleCourierServiceable()
+    {
+        return [
+            'pickup_postcode' => 110030,
+            'delivery_postcode' => 122002,
+            'cod' => 1,
+            'weight' => '1',
         ];
     }
 }
