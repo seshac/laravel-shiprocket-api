@@ -2,8 +2,8 @@
 
 namespace Seshac\Shiprocket\Tests;
 
-use Seshac\Shiprocket\Tests\Traits\SampleData;
 use Seshac\Shiprocket\Tests\Traits\Authenticate;
+use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class ShiprocketTest extends TestCase
 {
@@ -15,8 +15,5 @@ class ShiprocketTest extends TestCase
     {
         $token = $this->getToken();
         $this->assertNotNull($token);
-    } 
-
-  
-
+    }
 }

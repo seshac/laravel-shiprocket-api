@@ -74,11 +74,13 @@ class ShiprocketClient implements Client
 
         if ($this->isValid($response)) {
             curl_close($curl);
+
             return json_decode($response);
         }
 
-        dd(curl_error($curl) , 'sesha',  $response );
+        dd(curl_error($curl), 'sesha',  $response);
         curl_close($curl);
+
         return false;
     }
 
@@ -88,8 +90,8 @@ class ShiprocketClient implements Client
      * @param array $data
      * @return void
      */
-    public function patch(array $data) 
-    {   
+    public function patch(array $data)
+    {
         return $this->post($data, 'PATCH');
     }
 
@@ -102,7 +104,7 @@ class ShiprocketClient implements Client
     {
         $curl = curl_init();
 
-        curl_setopt_array($curl, array(
+        curl_setopt_array($curl, [
             CURLOPT_URL => $this->endpoint,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
@@ -112,7 +114,7 @@ class ShiprocketClient implements Client
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => $this->headers,
-        ));
+        ]);
 
         $response = curl_exec($curl);
 

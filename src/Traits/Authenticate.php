@@ -11,6 +11,7 @@ trait Authenticate
         $authDetails = $client->setEndpoint($endpoint)
                         ->setHeaders('login')
                         ->post($credentials);
+
         return $authDetails->token;
     }
 }

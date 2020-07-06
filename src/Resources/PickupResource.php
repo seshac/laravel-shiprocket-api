@@ -18,6 +18,7 @@ class PickupResource
     public function addLocation(array $location)
     {
         $endpoint = 'external/settings/company/addpickup';
+
         return  $this->client->setEndpoint($endpoint)
                         ->setHeaders($this->token)
                         ->post($location);
@@ -26,6 +27,7 @@ class PickupResource
     public function getLocations()
     {
         $endpoint = 'external/settings/company/pickup';
+
         return $this->client->setEndpoint($endpoint)
             ->setHeaders($this->token)
             ->get();

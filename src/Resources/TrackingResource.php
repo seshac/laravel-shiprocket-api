@@ -70,7 +70,7 @@ class TrackingResource
     public function throwOrderId(string $orderId, string $channelId = null)
     {
         $endpoint = 'external/courier/track?order_id='. $orderId;
-        if($channelId) {
+        if ($channelId) {
             $endpoint = $endpoint . '&channel_id=' . $channelId;
         }
 

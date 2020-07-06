@@ -27,7 +27,7 @@ class CouriersTest extends TestCase
     {
         $data = $this->sampleCourierServiceable();
         $response = Shiprocket::courier($this->token)->checkServiceability($data);
-        $this->assertEquals(200,$response->status);
+        $this->assertEquals(200, $response->status);
         $this->assertGreaterThanOrEqual(1, count($response->data->available_courier_companies));
     }
 
@@ -38,8 +38,6 @@ class CouriersTest extends TestCase
         $order = Shiprocket::order($this->token)->create($sampleOrder);
 
         $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->shipment_id ]);
-        dd($response );
+        dd($response);
     }
-
-    
 }

@@ -2,9 +2,9 @@
 
 namespace Seshac\Shiprocket;
 
-use Seshac\Shiprocket\ShiprocketApi;
 use Illuminate\Support\ServiceProvider;
 use Seshac\Shiprocket\Commands\ShiprocketCommand;
+use Seshac\Shiprocket\ShiprocketApi;
 
 class ShiprocketServiceProvider extends ServiceProvider
 {
@@ -19,7 +19,6 @@ class ShiprocketServiceProvider extends ServiceProvider
                 ShiprocketCommand::class,
             ]);
         }
-
     }
 
     public function register()

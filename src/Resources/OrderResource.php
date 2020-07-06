@@ -17,7 +17,7 @@ class OrderResource
 
 
     /**
-     * Use this API to do multiple tasks in one go, nmely creating a quick order, 
+     * Use this API to do multiple tasks in one go, nmely creating a quick order,
      * requesting for its shipment and finally generating the label and manifest for the same order.
      *
      * @param array $order
@@ -26,6 +26,7 @@ class OrderResource
     public function quickOrder(array $order)
     {
         $endpoint = 'external/shipments/create/forward-shipment';
+
         return $this->client->setEndpoint($endpoint)
                 ->setHeaders($this->token)
                 ->post($order);
@@ -60,6 +61,7 @@ class OrderResource
     public function cancel(array $ids)
     {
         $endpoint = 'external/orders/cancel';
+
         return $this->client->setEndpoint($endpoint)
                 ->setHeaders($this->token)
                 ->post($ids);

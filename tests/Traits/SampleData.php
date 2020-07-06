@@ -65,11 +65,11 @@ trait SampleData
         ];
     }
 
-    public function sampleQuickOrder($pickupLocation) 
+    public function sampleQuickOrder($pickupLocation)
     {
         $extraDetails = [
-            'print_label'        => false,
-            'generate_manifest'  => false,
+            'print_label' => false,
+            'generate_manifest' => false,
             'pickup_location' => $pickupLocation,
         ];
         $sampleOrder = $this->sampleOrder($pickupLocation);
