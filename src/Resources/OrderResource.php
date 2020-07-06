@@ -14,7 +14,23 @@ class OrderResource
         $this->client = $client;
         $this->token = $token;
     }
-    
+
+
+    /**
+     * Use this API to do multiple tasks in one go, nmely creating a quick order, 
+     * requesting for its shipment and finally generating the label and manifest for the same order.
+     *
+     * @param array $order
+     * @return void
+     */
+    public function quickOrder(array $order)
+    {
+        $endpoint = 'external/shipments/create/forward-shipment';
+        return $this->client->setEndpoint($endpoint)
+                ->setHeaders($this->token)
+                ->post($order);
+    }
+
     /**
      * Send order using post request
      *

@@ -31,6 +31,14 @@ class OrdersTest extends TestCase
         $this->assertEquals($order->status, 'NEW');
     }
 
+    /** @test */
+    public function can_able_to_create_the_quick_order()
+    {
+        $sampleQuickOrder = $this->sampleQuickOrder($this->locations->data->shipping_address[0]->pickup_location);
+        $order = Shiprocket::quickOrder($this->token)->create($sampleQuickOrder);
+        dd(order);
+    }
+
     public function can_able_to_cancel_an_order()
     {
         // $sampleOrder = $this->sampleOrder($this->locations->data->shipping_address[0]->pickup_location);

@@ -7,6 +7,7 @@ use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Clients\ShiprocketClient;
 use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\CourierResource;
+use Seshac\Shiprocket\Resources\TrackingResource;
 
 class ShiprocketApi
 {
@@ -61,6 +62,22 @@ class ShiprocketApi
     public function courier(string $token) :object
     {
         return new CourierResource($this->client, $token);
+    }
+
+    /**
+     * Tracking related wrapper class
+     *
+     * @param string $token
+     * @return object
+     */
+    public function track(string $token) :object 
+    {
+        return new TrackingResource($this->client,$token);
+    }
+    
+    public function shipment(string $token) :object
+    {
+        
     }
 
 }
