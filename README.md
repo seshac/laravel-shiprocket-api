@@ -1,3 +1,5 @@
+# ( Work IN Progress )
+
 # Integration of Shiprocket API in your laravel application is made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sesha/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
@@ -30,7 +32,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [:author_name](https://github.com/seshac)
+- [seshac](https://github.com/seshac)
 - [All Contributors](../../contributors)
 
 ## License
