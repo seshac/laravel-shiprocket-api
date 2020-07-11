@@ -12,36 +12,12 @@ You can install the package via composer:
 composer require seshac/laravel-shiprocket-api
 ```
 
-You can publish and run the migrations with:
+## WIP - Will update the documentaton later
 
-```bash
-php artisan vendor:publish --provider="Sesha\Sketch\SketchServiceProvider" --tag="migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Sesha\Sketch\SketchServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
 
 ## Usage
 
 ``` php
-$sketch = new Sesha\Sketch();
-echo $sketch->echoPhrase('Hello, Sesha!');
-```
-
-## Testing
-
-``` bash
-composer test
 ```
 
 ## Changelog
@@ -54,7 +30,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [:author_name](https://github.com/seshac)
 - [All Contributors](../../contributors)
 
 ## License
