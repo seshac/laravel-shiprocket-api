@@ -2,14 +2,14 @@
 
 namespace Seshac\Shiprocket;
 
-use Seshac\Shiprocket\Traits\Authenticate;
-use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Clients\ShiprocketClient;
-use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ChannelResource;
 use Seshac\Shiprocket\Resources\CourierResource;
+use Seshac\Shiprocket\Resources\OrderResource;
+use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
 use Seshac\Shiprocket\Resources\TrackingResource;
+use Seshac\Shiprocket\Traits\Authenticate;
 
 class ShiprocketApi
 {
@@ -111,5 +111,4 @@ class ShiprocketApi
     {
         return new ShipmentResource($this->client, $token);
     }
-    
 }

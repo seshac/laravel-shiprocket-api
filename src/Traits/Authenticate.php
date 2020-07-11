@@ -13,7 +13,7 @@ trait Authenticate
 
         $endpoint = 'external/auth/login';
 
-        $authDetails =  $client->setEndpoint($endpoint)
+        $authDetails = $client->setEndpoint($endpoint)
             ->setHeaders('login')
             ->post($credentials);
 

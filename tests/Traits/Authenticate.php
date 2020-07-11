@@ -8,6 +8,7 @@ trait Authenticate
     public function getToken()
     {
         $authdetails = Shiprocket::login($credentials = null);
+
         return $authdetails->get('token');
     }
 }

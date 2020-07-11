@@ -35,6 +35,5 @@ class ChannelResource
     {
         $channels = $this->get();
         dd(collect($channels));
-
     }
 }

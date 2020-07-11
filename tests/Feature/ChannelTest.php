@@ -20,5 +20,4 @@ class ChannelTest extends TestCase
 
         $this->assertGreaterThanOrEqual(1, count($channels->get('data')));
     }
-
 }

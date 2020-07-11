@@ -57,12 +57,10 @@ class OrdersTest extends TestCase
         $cancelOrder = Shiprocket::order($this->token)->cancel([ 'ids' => [$order->get('order_id')] ]);
        
         $this->assertEquals('Order cancelled successfully.', $cancelOrder->get('message'));
-       
     }
      
     /** Todo */
     public function can_able_to_change_the_pickup_location()
     {
-        
     }
 }

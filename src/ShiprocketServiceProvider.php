@@ -14,7 +14,6 @@ class ShiprocketServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/shiprocket.php' => config_path('shiprocket.php'),
             ], 'config');
-
         }
     }
 

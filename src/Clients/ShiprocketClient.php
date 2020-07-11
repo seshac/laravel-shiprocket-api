@@ -117,7 +117,7 @@ class ShiprocketClient implements Client
 
         $response = curl_exec($curl);
 
-        if (!$this->isValid($response)) {
+        if (! $this->isValid($response)) {
             $response = json_encode(['curl_error' => curl_error($curl)]);
         }
 

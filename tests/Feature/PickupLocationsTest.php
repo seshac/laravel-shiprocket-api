@@ -13,7 +13,6 @@ class PickupLocationsTest extends TestCase
     /** @test */
     public function can_able_to_get_the_pickup_locations()
     {
-        
         $token = $this->getToken();
 
         // $this->addPickupLocation($token);

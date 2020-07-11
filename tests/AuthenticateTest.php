@@ -20,6 +20,5 @@ class AuthenticateTest extends TestCase
     {
         $token = $this->getToken(['email' => 'seshadriece009@gmail.com', 'password' => '@5KYH7QgBLKeLN8']);
         $this->assertNotNull($token);
-
     }
 }

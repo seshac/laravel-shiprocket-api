@@ -36,13 +36,12 @@ class CouriersTest extends TestCase
     /** @test */
     public function can_able_to_generate_a_awb_number()
     {
-        
         $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
 
         $order = Shiprocket::order($this->token)->create($sampleOrder);
 
         $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->get('shipment_id')]);
         
-       // This needs to complete KYC verification
+        // This needs to complete KYC verification
     }
 }
