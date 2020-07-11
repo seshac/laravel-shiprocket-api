@@ -49,13 +49,19 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Shiprocket\\Shiprocket\\ShiprocketServiceProvider"
+                "Seshac\\Shiprocket\\ShiprocketServiceProvider"
             ],
             "aliases": {
-                "Shiprocket": "Shiprocket\\Shiprocket\\Shiprocket"
+                "Shiprocket": "Seshac\\Shiprocket\\Shiprocket"
             }
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "local": {
+            "type": "path",
+            "url": "/Users/sesha/laravel-shiprocket-api"
+        }
+    }
 }

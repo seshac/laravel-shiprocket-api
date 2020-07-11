@@ -8,8 +8,7 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class CouriersTest extends TestCase
 {
-    use SampleData;
-    use Authenticate;
+    use SampleData, Authenticate;
 
     protected $token;
 
@@ -26,18 +25,24 @@ class CouriersTest extends TestCase
     public function can_able_check_a_serviceable_pincode()
     {
         $data = $this->sampleCourierServiceable();
+
         $response = Shiprocket::courier($this->token)->checkServiceability($data);
-        $this->assertEquals(200, $response->status);
-        $this->assertGreaterThanOrEqual(1, count($response->data->available_courier_companies));
+
+        $this->assertEquals(200, $response->get('status'));
+
+        $this->assertGreaterThanOrEqual(1, count($response->pluck('data.available_courier_companies')));
     }
 
     /** @test */
     public function can_able_to_generate_a_awb_number()
     {
-        $sampleOrder = $this->sampleOrder($this->locations->data->shipping_address[0]->pickup_location);
+        
+        $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
+
         $order = Shiprocket::order($this->token)->create($sampleOrder);
 
-        $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->shipment_id ]);
-        dd($response);
+        $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->get('shipment_id')]);
+        
+       // This needs to complete KYC verification
     }
 }

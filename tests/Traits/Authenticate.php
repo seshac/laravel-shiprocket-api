@@ -7,6 +7,7 @@ trait Authenticate
 {
     public function getToken()
     {
-        return Shiprocket::getToken(['email' => 'seshadriece009@gmail.com', 'password' => '@5KYH7QgBLKeLN8']);
+        $authdetails = Shiprocket::login($credentials = null);
+        return $authdetails->get('token');
     }
 }

@@ -8,21 +8,27 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class PickupLocationsTest extends TestCase
 {
-    use SampleData;
-    use Authenticate;
+    use SampleData, Authenticate;
 
     /** @test */
     public function can_able_to_get_the_pickup_locations()
     {
+        
         $token = $this->getToken();
+
+        // $this->addPickupLocation($token);
+
         $locations = Shiprocket::pickup($token)->getLocations();
-        $this->assertArrayHasKey('shipping_address', $locations->data);
-        $this->assertArrayHasKey('pickup_location', (array) $locations->data->shipping_address[0]);
+
+        $this->assertArrayHasKey('shipping_address', $locations->get('data'));
+
+        $this->assertArrayHasKey('pickup_location', $locations->pull('data.shipping_address.0'));
     }
   
-    private function addPickupLocation($token)
+    private function addPickupLocation(string $token)
     {
         $location = $this->sampleLocation();
-        $details = Shiprocket::pickup($token)->addLocation($location);
+
+        Shiprocket::pickup($token)->addLocation($location);
     }
 }

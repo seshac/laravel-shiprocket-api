@@ -17,13 +17,13 @@ class OrderResource
 
 
     /**
-     * Use this API to do multiple tasks in one go, nmely creating a quick order,
+     * Use this API to do multiple tasks in one go, namely creating a quick order,
      * requesting for its shipment and finally generating the label and manifest for the same order.
      *
      * @param array $order
      * @return void
      */
-    public function quickOrder(array $order)
+    public function quickCreate(array $order)
     {
         $endpoint = 'external/shipments/create/forward-shipment';
 

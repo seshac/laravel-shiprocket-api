@@ -5,7 +5,7 @@ namespace Seshac\Shiprocket;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Sketch\Sketch\Sketch
+ * @see \Seshac\Shiprocket\ShiprocketApi
  */
 class Shiprocket extends Facade
 {

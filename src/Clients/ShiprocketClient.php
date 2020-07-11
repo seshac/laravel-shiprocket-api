@@ -5,15 +5,19 @@ class ShiprocketClient implements Client
 {
     protected $url;
     
-    public $endpoint;
+    protected $endpoint;
 
-    public $headers;
+    protected $headers;
+
+    protected $responseType;
 
     public function __construct()
     {
         $config = (object) config('shiprocket');
 
         $this->url = $config->url . $config->version .'/';
+
+        $this->responseType = $config->responseType;
     }
 
     /**
@@ -69,19 +73,14 @@ class ShiprocketClient implements Client
         ]);
 
         $response = curl_exec($curl);
-      
-       
 
-        if ($this->isValid($response)) {
-            curl_close($curl);
-
-            return json_decode($response);
+        if (! $this->isValid($response)) {
+            $response = json_encode([ 'curl_error' => curl_error($curl) ]);
         }
 
-        dd(curl_error($curl), 'sesha',  $response);
         curl_close($curl);
 
-        return false;
+        return $this->responseType($response);
     }
 
     /**
@@ -118,13 +117,13 @@ class ShiprocketClient implements Client
 
         $response = curl_exec($curl);
 
+        if (!$this->isValid($response)) {
+            $response = json_encode(['curl_error' => curl_error($curl)]);
+        }
+
         curl_close($curl);
 
-        if ($this->isValid($response)) {
-            return json_decode($response);
-        }
-     
-        return false;
+        return $this->responseType($response);
     }
 
     /**
@@ -133,7 +132,7 @@ class ShiprocketClient implements Client
      * @param string $string
      * @return bool
      */
-    public function isValid(string $string) :bool
+    private function isValid(string $string) :bool
     {
         if (! $string) {
             return false;
@@ -142,5 +141,20 @@ class ShiprocketClient implements Client
         json_decode($string);
 
         return json_last_error() == JSON_ERROR_NONE;
+    }
+
+    
+    private function responseType($response)
+    {
+        if ($this->responseType == 'collection') {
+            return collect(json_decode($response, true));
+        }
+        
+        if ($this->responseType == 'object') {
+            return json_decode($response);
+        }
+
+     
+        return json_decode($response, true);
     }
 }

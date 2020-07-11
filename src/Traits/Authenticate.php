@@ -5,13 +5,18 @@ use Seshac\Shiprocket\Clients\Client;
 
 trait Authenticate
 {
-    public function login(Client $client, array $credentials)
+    public function auth(Client $client, $credentials = null)
     {
-        $endpoint = 'external/auth/login';
-        $authDetails = $client->setEndpoint($endpoint)
-                        ->setHeaders('login')
-                        ->post($credentials);
+        if (! $credentials) {
+            $credentials = config('shiprocket.credentials');
+        }
 
-        return $authDetails->token;
+        $endpoint = 'external/auth/login';
+
+        $authDetails =  $client->setEndpoint($endpoint)
+            ->setHeaders('login')
+            ->post($credentials);
+
+        return $authDetails;
     }
 }
