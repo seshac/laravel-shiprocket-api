@@ -1,4 +1,4 @@
-# ( Work IN Progress )
+# ( Work In Progress )
 
 # Integration of Shiprocket API in your laravel application is made easy.
 
