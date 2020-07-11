@@ -1,4 +1,4 @@
-# Integration of Shiprocket API in your laravel application is easy, This package enables you to utilize most of your Shiprocket functions.
+# Integration of Shiprocket API in your laravel application is made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sesha/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sesha/laravel-shiprocket-api/run-tests?label=tests)](https://github.com/sesha/laravel-shiprocket-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
