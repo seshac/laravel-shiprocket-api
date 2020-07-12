@@ -14,6 +14,12 @@ You can install the package via composer:
 composer require seshac/laravel-shiprocket-api
 ```
 
+You can publish config file with:
+
+```bash
+php artisan vendor:publish --provider="Seshac\Shiprocket\ShiprocketServiceProvider" --tag="config"
+```
+
 ## WIP - Will update the documentaton later
 
 
