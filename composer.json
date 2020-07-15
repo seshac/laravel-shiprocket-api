@@ -57,11 +57,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "/Users/sesha/laravel-shiprocket-api"
-        }
-    }
+    "prefer-stable": true
 }
