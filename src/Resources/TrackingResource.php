@@ -49,7 +49,7 @@ class TrackingResource
      * Get the tracking details of shipment by using the ShipmentId
      *
      * @param string $shipmentId
-     * @return void
+     * @return mixed
      */
     public function throwShipmentId(string $shipmentId)
     {
@@ -65,7 +65,7 @@ class TrackingResource
      *
      * @param string $orderId
      * @param string $channelId
-     * @return void
+     * @return mixed
      */
     public function throwOrderId(string $orderId, string $channelId = null)
     {

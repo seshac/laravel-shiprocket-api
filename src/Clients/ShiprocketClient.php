@@ -87,7 +87,7 @@ class ShiprocketClient implements Client
      * Send a data using PATCH Request
      *
      * @param array $data
-     * @return void
+     * @return mixed
      */
     public function patch(array $data)
     {
@@ -129,21 +129,24 @@ class ShiprocketClient implements Client
     /**
      * Check the return data is valid
      *
-     * @param string $string
+     * @param mixed $string
      * @return bool
      */
-    private function isValid(string $string) :bool
+    private function isValid($string) :bool
     {
         if (! $string) {
             return false;
         }
         
-        json_decode($string);
-
-        return json_last_error() == JSON_ERROR_NONE;
+        return json_decode($string) ? true : false;
     }
 
-    
+    /**
+     * Return the response type based on config responseType
+     *
+     * @param $response
+     * @return mixed
+     */
     private function responseType($response)
     {
         if ($this->responseType == 'collection') {

@@ -19,7 +19,7 @@ class CourierResource
      * Generate AWB for specific order
      *
      * @param array $data
-     * @return void
+     * @return mixed
      */
     public function generateAWB(array $data)
     {

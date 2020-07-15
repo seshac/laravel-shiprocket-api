@@ -64,7 +64,7 @@ class GenerateResource
      * Generate the invoice for you're order.
      *
      * @param array $orderIds
-     * @return void
+     * @return mixed
      */
     public function invoice(array $orderIds)
     {

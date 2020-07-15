@@ -5,6 +5,7 @@ namespace Seshac\Shiprocket;
 use Seshac\Shiprocket\Clients\ShiprocketClient;
 use Seshac\Shiprocket\Resources\ChannelResource;
 use Seshac\Shiprocket\Resources\CourierResource;
+use Seshac\Shiprocket\Resources\GenerateResource;
 use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
@@ -26,7 +27,7 @@ class ShiprocketApi
      * Get the login details including token (valid for 24 hours)
      *
      * @param array $credentials
-     * @return void
+     * @return mixed
      */
     public function login($credentials = null)
     {
@@ -37,7 +38,7 @@ class ShiprocketApi
      * Get the auth token (valid for 24 hours)
      *
      * @param array $credentials
-     * @return void
+     * @return string
      */
     public function getToken($credentials = null)
     {
@@ -49,9 +50,9 @@ class ShiprocketApi
      * Order related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function order(string $token) :object
+    public function order(string $token)
     {
         return new OrderResource($this->client, $token);
     }
@@ -60,9 +61,9 @@ class ShiprocketApi
      * Pickup related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function pickup(string $token) :object
+    public function pickup(string $token)
     {
         return new PickupResource($this->client, $token);
     }
@@ -71,9 +72,9 @@ class ShiprocketApi
      * Courier related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function courier(string $token) :object
+    public function courier(string $token)
     {
         return new CourierResource($this->client, $token);
     }
@@ -82,9 +83,9 @@ class ShiprocketApi
      * Tracking related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function track(string $token) :object
+    public function track(string $token)
     {
         return new TrackingResource($this->client, $token);
     }
@@ -93,22 +94,33 @@ class ShiprocketApi
      * Channel related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function channel(string $token) :object
+    public function channel(string $token)
     {
         return new ChannelResource($this->client, $token);
     }
 
-    
     /**
      * Shipment related wrapper class
      *
      * @param string $token
-     * @return object
+     * @return mixed
      */
-    public function shipment(string $token) :object
+    public function shipment(string $token)
     {
         return new ShipmentResource($this->client, $token);
     }
+
+    /**
+     * Print manifest/labels related wrapper class
+     *
+     * @param string $token
+     * @return void
+     */
+    public function generate(string $token)
+    {
+        return new GenerateResource($this->client,$token);
+    }
+
 }

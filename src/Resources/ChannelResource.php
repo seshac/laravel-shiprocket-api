@@ -30,10 +30,4 @@ class ChannelResource
             ->get();
     }
     
-
-    public function first()
-    {
-        $channels = $this->get();
-        dd(collect($channels));
-    }
 }

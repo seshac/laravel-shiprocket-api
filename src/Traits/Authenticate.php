@@ -2,6 +2,7 @@
 namespace Seshac\Shiprocket\Traits;
 
 use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Exceptions\ShiprocketException;
 
 trait Authenticate
 {
@@ -9,6 +10,10 @@ trait Authenticate
     {
         if (! $credentials) {
             $credentials = config('shiprocket.credentials');
+        }
+
+        if (is_null($credentials) || ! is_array($credentials)) {
+            throw new ShiprocketException('Invalid Credentials');
         }
 
         $endpoint = 'external/auth/login';

@@ -21,7 +21,7 @@ class OrderResource
      * requesting for its shipment and finally generating the label and manifest for the same order.
      *
      * @param array $order
-     * @return void
+     * @return mixed
      */
     public function quickCreate(array $order)
     {
@@ -33,7 +33,7 @@ class OrderResource
     }
 
     /**
-     * Send order using post request
+     * Create a custom or channel specific order
      *
      * @param array $order
      * @param bool $channelSpecificOrder
@@ -53,10 +53,10 @@ class OrderResource
     }
 
     /**
-     * TODO : ISSUE WITH CANCEL API
+     * Cancel an Order
      *
      * @param array $ids
-     * @return void
+     * @return mixed
      */
     public function cancel(array $ids)
     {
