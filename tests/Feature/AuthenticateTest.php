@@ -3,8 +3,8 @@
 namespace Seshac\Shiprocket\Tests\Feature;
 
 use Seshac\Shiprocket\Tests\TestCase;
-use Seshac\Shiprocket\Tests\Traits\SampleData;
 use Seshac\Shiprocket\Tests\Traits\Authenticate;
+use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class AuthenticateTest extends TestCase
 {
@@ -22,7 +22,7 @@ class AuthenticateTest extends TestCase
     {
         $token = $this->getToken([
             'email' => 'seshadriece009@gmail.com',
-            'password' => '@5KYH7QgBLKeLN8'
+            'password' => '@5KYH7QgBLKeLN8',
         ]);
         $this->assertNotNull($token);
     }

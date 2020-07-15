@@ -29,5 +29,4 @@ class ChannelResource
             ->setHeaders($this->token)
             ->get();
     }
-    
 }

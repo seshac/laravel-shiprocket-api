@@ -120,7 +120,6 @@ class ShiprocketApi
      */
     public function generate(string $token)
     {
-        return new GenerateResource($this->client,$token);
+        return new GenerateResource($this->client, $token);
     }
-
 }
