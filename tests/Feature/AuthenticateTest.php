@@ -18,7 +18,7 @@ class AuthenticateTest extends TestCase
     }
 
     /** @test */
-    public function can_able_to_get_a_token_without_default_credentials()
+    public function it_can_able_to_get_a_token_without_default_credentials()
     {
         $token = $this->getToken([
             'email' => 'seshadriece009@gmail.com',

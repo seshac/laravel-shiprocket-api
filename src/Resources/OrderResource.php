@@ -1,21 +1,11 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class OrderResource
+
+class OrderResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-  
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
-
     /**
      * Use this API to do multiple tasks in one go, namely creating a quick order,
      * requesting for its shipment and finally generating the label and manifest for the same order.
@@ -25,11 +15,9 @@ class OrderResource
      */
     public function quickCreate(array $order)
     {
-        $endpoint = 'external/shipments/create/forward-shipment';
+        $endpoint = 'shipments/create/forward-shipment';
 
-        return $this->client->setEndpoint($endpoint)
-                ->setHeaders($this->token)
-                ->post($order);
+        return $this->postRequest($endpoint,$order);
     }
 
     /**
@@ -42,14 +30,12 @@ class OrderResource
     public function create(array $order, bool $channelSpecificOrder = false)
     {
         if ($channelSpecificOrder) {
-            $endpoint = 'external/orders/create';
+            $endpoint = 'orders/create';
         } else {
-            $endpoint = 'external/orders/create/adhoc';
+            $endpoint = 'orders/create/adhoc';
         }
 
-        return $this->client->setEndpoint($endpoint)
-                    ->setHeaders($this->token)
-                    ->post($order);
+        return $this->postRequest($endpoint,$order);
     }
 
     /**
@@ -60,20 +46,22 @@ class OrderResource
      */
     public function cancel(array $ids)
     {
-        $endpoint = 'external/orders/cancel';
+        $endpoint = 'orders/cancel';
 
-        return $this->client->setEndpoint($endpoint)
-                ->setHeaders($this->token)
-                ->post($ids);
+        return $this->postRequest($endpoint,$ids);
     }
 
 
+    /**
+     * Update the pickup location
+     *
+     * @param array $data
+     * @return mixed
+     */
     public function updatePickupLocation(array $data)
     {
-        $endpoint = 'external/orders/address/pickup';
+        $endpoint = 'orders/address/pickup';
 
-        return $this->client->setEndpoint($endpoint)
-                    ->setHeaders($this->token)
-                    ->patch($data);
+        return $this->patchRequest($endpoint,$data);
     }
 }

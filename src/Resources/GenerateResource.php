@@ -1,20 +1,10 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class GenerateResource
+class GenerateResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-    
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      *  Generate the manifest of orders using shipment Id's
      *
@@ -23,11 +13,9 @@ class GenerateResource
      */
     public function manifest(array $shipmentIds)
     {
-        $endpoint = 'external/manifests/generate';
+        $endpoint = 'manifests/generate';
 
-        return  $this->client->setEndpoint($endpoint)
-                        ->setHeaders($this->token)
-                        ->post($shipmentIds);
+        return $this->postRequest($endpoint, $shipmentIds);
     }
 
     /**
@@ -38,11 +26,9 @@ class GenerateResource
      */
     public function printManifest(array $orderIds)
     {
-        $endpoint = 'external/manifests/print';
+        $endpoint = 'manifests/print';
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->post($orderIds);
+        return $this->postRequest($endpoint, $orderIds);
     }
 
     /**
@@ -53,11 +39,9 @@ class GenerateResource
      */
     public function label(array $shipmentIds)
     {
-        $endpoint = 'external/courier/generate/label';
+        $endpoint = 'courier/generate/label';
 
-        return  $this->client->setEndpoint($endpoint)
-                        ->setHeaders($this->token)
-                        ->post($shipmentIds);
+        return $this->postRequest($endpoint, $shipmentIds);
     }
     
     /**
@@ -68,10 +52,8 @@ class GenerateResource
      */
     public function invoice(array $orderIds)
     {
-        $endpoint = 'external/orders/print/invoice';
+        $endpoint = 'orders/print/invoice';
 
-        return  $this->client->setEndpoint($endpoint)
-                        ->setHeaders($this->token)
-                        ->post($orderIds);
+        return $this->postRequest($endpoint, $orderIds);
     }
 }

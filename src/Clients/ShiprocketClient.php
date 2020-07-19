@@ -3,7 +3,7 @@ namespace Seshac\Shiprocket\Clients;
 
 class ShiprocketClient implements Client
 {
-    protected $url;
+    protected $url = 'https://apiv2.shiprocket.in/v1/external/';
     
     protected $endpoint;
 
@@ -13,11 +13,7 @@ class ShiprocketClient implements Client
 
     public function __construct()
     {
-        $config = (object) config('shiprocket');
-
-        $this->url = $config->url . $config->version .'/';
-
-        $this->responseType = $config->responseType;
+        $this->responseType = config('shiprocket.responseType');
     }
 
     /**
@@ -67,7 +63,7 @@ class ShiprocketClient implements Client
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_CUSTOMREQUEST => $type,
             CURLOPT_POSTFIELDS => json_encode($data),
             CURLOPT_HTTPHEADER => $this->headers,
         ]);
@@ -156,7 +152,6 @@ class ShiprocketClient implements Client
         if ($this->responseType == 'object') {
             return json_decode($response);
         }
-
      
         return json_decode($response, true);
     }

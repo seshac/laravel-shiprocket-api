@@ -1,32 +1,6 @@
 <?php
 
 return [
-
-
-   /*
-    |--------------------------------------------------------------------------
-    | Shiprocket API URL 
-    |--------------------------------------------------------------------------
-    |
-    | It will be useful, if shiprocket changes the endpoint
-    | 
-    */
-
-    'url' => 'https://apiv2.shiprocket.in/',
-
-
-
-   /*
-    |--------------------------------------------------------------------------
-    | Shiprocket API  Version 
-    |--------------------------------------------------------------------------
-    |
-    | It will be useful while upgrading to another version.
-    | 
-    */
-    'version' => 'v1',
-
-
     /*
     |--------------------------------------------------------------------------
     | Default Shiprocket Credentilas
@@ -54,5 +28,4 @@ return [
     */
 
     'responseType' => 'collection',
-    
 ];

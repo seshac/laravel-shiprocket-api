@@ -1,20 +1,10 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class ShipmentResource
+class ShipmentResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-    
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      *  Get the all shipment details
      *
@@ -23,15 +13,13 @@ class ShipmentResource
      */
     public function get(array $extraParam = null)
     {
-        $endpoint = 'external/shipments';
+        $endpoint = 'shipments';
 
         if ($extraParam) {
             $endpoint = $endpoint . '?' .  http_build_query($extraParam);
         }
 
-        return  $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        return $this->getRequest($endpoint);
     }
 
     /**
@@ -42,10 +30,8 @@ class ShipmentResource
      */
     public function getSpecific(string $shipmentId)
     {
-        $endpoint = 'external/shipments/' . $shipmentId;
+        $endpoint = 'shipments/' . $shipmentId;
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        return $this->getRequest($endpoint);
     }
 }

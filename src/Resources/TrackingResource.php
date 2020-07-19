@@ -1,20 +1,10 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class TrackingResource
+class TrackingResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-  
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      * Get the tracking details of shipment by using the single AWB code
      * @param string $awb
@@ -22,11 +12,9 @@ class TrackingResource
      */
     public function throughAwb(string $awb)
     {
-        $endpoint = 'external/courier/track/awb/'. $awb;
+        $endpoint = 'courier/track/awb/'. $awb;
 
-        return $this->client->setEndpoint($endpoint)
-                ->setHeaders($this->token)
-                ->get();
+        return $this->getRequest($endpoint);
     }
 
 
@@ -38,11 +26,9 @@ class TrackingResource
      */
     public function throwMultipleAwb(array $awbs)
     {
-        $endpoint = 'external/courier/track/awbs';
+        $endpoint = 'courier/track/awbs';
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->post($awbs);
+        return $this->postRequest($endpoint, $awbs);
     }
     
     /**
@@ -53,11 +39,9 @@ class TrackingResource
      */
     public function throwShipmentId(string $shipmentId)
     {
-        $endpoint = 'external/courier/track/shipment/' . $shipmentId;
+        $endpoint = 'courier/track/shipment/' . $shipmentId;
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        return $this->getRequest($endpoint);
     }
 
     /**
@@ -69,13 +53,11 @@ class TrackingResource
      */
     public function throwOrderId(string $orderId, string $channelId = null)
     {
-        $endpoint = 'external/courier/track?order_id='. $orderId;
+        $endpoint = 'courier/track?order_id='. $orderId;
         if ($channelId) {
             $endpoint = $endpoint . '&channel_id=' . $channelId;
         }
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        return $this->getRequest($endpoint);
     }
 }

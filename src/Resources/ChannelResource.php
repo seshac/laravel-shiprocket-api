@@ -2,20 +2,10 @@
 
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class ChannelResource
+class ChannelResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      * To get details about all the integrated channels
      *
@@ -23,11 +13,7 @@ class ChannelResource
      */
     public function get()
     {
-        $endpoint = 'external/channels';
-
-        return  $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        $endpoint = 'channels';
+        return  $this->getRequest($endpoint);
     }
-    
 }

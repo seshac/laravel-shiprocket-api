@@ -1,4 +1,5 @@
-# Integration of Shiprocket API in your laravel application is made easy.
+# Shiprocket API (V1) Laravel SDK
+## Laravel SDK (module) for [Shiprocket API Version] 1(https://apidocs.shiprocket.in/?version=latest#intro). The integration of Shiprocket API in your laravel application is made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/seshac/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
 ![Psalm](https://github.com/seshac/laravel-shiprocket-api/workflows/Psalm/badge.svg?branch=master)
@@ -32,21 +33,58 @@ You can publish config file with:
 php artisan vendor:publish --provider="Seshac\Shiprocket\ShiprocketServiceProvider" --tag="config"
 ```
 
+## This is the contents of the published config file:
+```php
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | Default Shiprocket Credentilas
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the default shiprocket credentilas. However, you can pass the credentials while connecting to shiprocket client
+    | 
+    */
+
+    'credentials' => [
+        'email' => env('SHIPROCKET_EMAIL', 'example@email.com'),
+        'password' => env('SHIPROCKET_PASSWORD', 'password'),
+    ],
+  
+
+   /*
+    |--------------------------------------------------------------------------
+    | Default output response type
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify which of the output response you need.
+    | 
+    | Supported: "collection" , "object", "array"
+    | 
+    */
+    
+    'responseType' => 'collection',  
+];
+```
+
+
 ## Authentication
     https://apidocs.shiprocket.in/?version=latest#8a56b4d6-b418-43cf-be25-ead62532aa18
 
 ##### Get the login details
 ```php
 $loginDetails =  Shiprocket::login([
-    'email' => 'yourAPiMail@example.com',  //  if you added credentials at shiprocket.php config  file no need to pass
+    'email' => 'yourAPiMail@example.com', 
     'password' => 'example'
 ])
+// if you added credentials at shiprocket.php config file no need to pass credentials
 ```
  Or 
  ##### Get the Token directly
 ```php
 $token =  Shiprocket::token();//  if you added credentials at shiprocket.php config
 ``` 
+
+
 ## Orders 
 #### Create Custom Order
 https://apidocs.shiprocket.in/?version=latest#247e58f3-37f3-4dfb-a4bb-b8f6ab6d41ec
@@ -99,6 +137,7 @@ $orderDetails = [
 $response =  Shiprocket::order($token)->updatePickupLocation($orderDetails);
 ```
 
+
 ## Couriers
 Use these API's to assign AWB to your order, check for courier serviceability, and request for the pickup of your order.
 https://apidocs.shiprocket.in/?version=latest#a091dfc1-f882-466a-96a1-e245d3c80c5b
@@ -118,8 +157,26 @@ https://apidocs.shiprocket.in/?version=latest#29ff5116-0917-41ba-8c82-6384126049
 $pincodeDetails = [
     // for paramets refer obove url.
 ];
-$response =  Shiprocket::courier($token)->checkServiceability($data);
+$response =  Shiprocket::courier($token)->checkServiceability($pincodeDetails);
 ```
+
+#### Check International Courier Serviceability
+https://apidocs.shiprocket.in/?version=latest#6d1f2fb0-43c1-434f-8c93-50674a0b59ef
+```php
+$pincodeDetails = [
+    // for paramets refer obove url.
+];
+$response =  Shiprocket::courier($token)->checkInterNationalServiceability($pincodeDetails);
+```
+#### Request for Shipments Pickup
+https://apidocs.shiprocket.in/?version=latest#9f42cdfd-a055-4934-a0f4-86764f87c80d
+```php
+$pickupDetails = [
+    // for paramets refer obove url.
+];
+$response =  Shiprocket::courier($token)->requestPickup($pickupDetails);
+```
+
 
 ## Shipments
 https://apidocs.shiprocket.in/?version=latest#0f9a75fd-6d23-453c-a3d7-85857e8c8759
@@ -136,6 +193,7 @@ https://apidocs.shiprocket.in/?version=latest#5f9bced5-4f16-4868-be55-a8c0215d07
 $shipemntId = 1232122;
 $shipments = Shiprocket::shipment($token)->getSpecific($shipemntId);
 ```
+
 
 ## Tracking 
 Use these API's to get the tracking details of your shipments through the AWB code or the Shipment ID.
@@ -171,6 +229,7 @@ $channelID = 121; //optional
 $shipment =  Shiprocket::track($token)->throwOrderId($orderId,$channelID);
 ```
 
+
 ## Pickup-Addresses
 https://apidocs.shiprocket.in/?version=latest#6949d954-d0ba-4749-99aa-2435ab7aaf4f
 
@@ -186,6 +245,7 @@ https://apidocs.shiprocket.in/?version=latest#3bd67de6-8f00-435f-a708-c0c3ab252f
 ```php
 $location = Shiprocket::pickup($token)->getLocations();
 ```
+
 
 ## Channels
 https://apidocs.shiprocket.in/?version=latest#6233e207-6de3-4960-a59c-b34ebe3fe33d
@@ -239,7 +299,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 - [Sesha](https://github.com/seshac)
 - [All Contributors](../../contributors)
 
-## Please feel free to contact me if you find any bug or create issue for that!.
+## Please feel free to contact me if you find any bug or create an issue for that!.
 
 ## License
 

@@ -12,11 +12,11 @@ trait Authenticate
             $credentials = config('shiprocket.credentials');
         }
 
-        if (is_null($credentials) || ! is_array($credentials)) {
+        if (! is_array($credentials) || empty($credentials['email']) || empty($credentials['password']) ) {
             throw new ShiprocketException('Invalid Credentials');
         }
 
-        $endpoint = 'external/auth/login';
+        $endpoint = 'auth/login';
 
         $authDetails = $client->setEndpoint($endpoint)
             ->setHeaders('login')

@@ -1,11 +1,11 @@
 {
     "name": "seshac/laravel-shiprocket-api",
-    "description": "Integration of Shiprocket API in your laravel application is easy, This package enables you to utilize most of your Shiprocket functions.",
+    "description": "Shiprocket API (V1) Laravel SDK. Integration of Shiprocket API in your laravel application is easy, This package enables you to utilize most of your Shiprocket functions.",
     "keywords": [
         "sesha",
-        "laravel Shiprcoker Api",
-        "Laravel Shiprocker Wrapper",
-        "Shiprocket Api"
+        "laravel Shiprcoket Api",
+        "Laravel Shiprocket Wrapper",
+        "Shiprocket SDK Module"
     ],
     "homepage": "https://github.com/seshac/laravel-shiprocket-api",
     "license": "MIT",

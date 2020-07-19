@@ -12,7 +12,7 @@ class ChannelTest extends TestCase
     use SampleData, Authenticate;
 
     /** @test */
-    public function can_able_to_get_the_integrated_channels()
+    public function it_can_able_to_get_the_integrated_channels()
     {
         $token = $this->getToken();
 

@@ -1,20 +1,10 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class CourierResource
+class CourierResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-  
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      * Generate AWB for specific order
      *
@@ -23,11 +13,9 @@ class CourierResource
      */
     public function generateAWB(array $data)
     {
-        $endpoint = 'external/courier/assign/awb';
+        $endpoint = 'courier/assign/awb';
 
-        return $this->client->setEndpoint($endpoint)
-                    ->setHeaders($this->token)
-                    ->post($data);
+        return $this->postRequest($endpoint,$data);
     }
 
     /**
@@ -38,20 +26,34 @@ class CourierResource
      */
     public function checkServiceability(array $data)
     {
-        $endpoint = 'external/courier/serviceability/?' . http_build_query($data);
+        $endpoint = 'courier/serviceability/?' . http_build_query($data);
 
-        return $this->client->setEndpoint($endpoint)
-                            ->setHeaders($this->token)
-                            ->get();
+        return $this->getRequest($endpoint);
     }
 
-    /** Todo */
-    public function checkInterNationalServiceability()
+    /**
+     * Check International Courier Serviceability
+     *
+     * @param array $params
+     * @return mixed
+     */
+    public function checkInterNationalServiceability(array $params)
     {
+        $endpoint = 'courier/international/serviceability/?'. http_build_query($params);
+
+        return $this->getRequest($endpoint);
     }
 
-    /** Todo */
-    public function requestPickup()
+    /**
+     * Request for Shipments Pickup
+     *
+     * @param array $data
+     * @return mixed
+     */
+    public function requestPickup(array $pickupDetails)
     {
+        $endpoint = 'courier/generate/pickup';
+
+        return $this->postRequest($endpoint,$pickupDetails);
     }
 }

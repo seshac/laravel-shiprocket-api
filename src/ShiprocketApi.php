@@ -116,7 +116,7 @@ class ShiprocketApi
      * Print manifest/labels related wrapper class
      *
      * @param string $token
-     * @return void
+     * @return mixed
      */
     public function generate(string $token)
     {

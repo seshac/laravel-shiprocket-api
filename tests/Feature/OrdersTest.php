@@ -24,7 +24,7 @@ class OrdersTest extends TestCase
     }
 
     /** @test */
-    public function can_able_to_create_an_order()
+    public function it_can_able_to_create_an_order()
     {
         $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
        
@@ -36,11 +36,11 @@ class OrdersTest extends TestCase
     }
 
     /** @test */
-    public function can_able_to_create_the_quick_order()
+    public function it_could_able_to_create_the_quick_order()
     {
         $sampleQuickOrder = $this->sampleQuickOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
        
-        $order = Shiprocket::quickOrder($this->token)->create($sampleQuickOrder);
+        $order = Shiprocket::order($this->token)->quickCreate($sampleQuickOrder);
         
         // This needs to complete KYC verification
 
@@ -48,7 +48,7 @@ class OrdersTest extends TestCase
     }
 
     /** @test */
-    public function can_able_to_cancel_an_order()
+    public function it_can_able_to_cancel_an_order()
     {
         $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
         
@@ -60,7 +60,7 @@ class OrdersTest extends TestCase
     }
      
     /** Todo */
-    public function can_able_to_change_the_pickup_location()
+    public function it_can_able_to_change_the_pickup_location()
     {
     }
 }

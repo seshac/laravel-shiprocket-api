@@ -1,20 +1,10 @@
 <?php
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Clients\Client;
+use Seshac\Shiprocket\Resources\Resource;
 
-class PickupResource
+class PickupResource extends Resource
 {
-    protected $client;
-
-    protected $token;
-    
-    public function __construct(Client $client, string $token)
-    {
-        $this->client = $client;
-        $this->token = $token;
-    }
-
     /**
      * Add a New Pickup Location
      *
@@ -23,11 +13,9 @@ class PickupResource
      */
     public function addLocation(array $location)
     {
-        $endpoint = 'external/settings/company/addpickup';
+        $endpoint = 'settings/company/addpickup';
 
-        return  $this->client->setEndpoint($endpoint)
-                        ->setHeaders($this->token)
-                        ->post($location);
+        return $this->postRequest($endpoint, $location);
     }
 
     /**
@@ -37,10 +25,8 @@ class PickupResource
      */
     public function getLocations()
     {
-        $endpoint = 'external/settings/company/pickup';
+        $endpoint = 'settings/company/pickup';
 
-        return $this->client->setEndpoint($endpoint)
-            ->setHeaders($this->token)
-            ->get();
+        return $this->getRequest($endpoint);
     }
 }

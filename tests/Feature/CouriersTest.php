@@ -43,5 +43,6 @@ class CouriersTest extends TestCase
         $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->get('shipment_id')]);
         
         // This needs to complete KYC verification
+        $this->assertNotEmpty($response);
     }
 }
