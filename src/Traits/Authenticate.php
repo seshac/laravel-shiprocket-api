@@ -12,7 +12,7 @@ trait Authenticate
             $credentials = config('shiprocket.credentials');
         }
 
-        if (! is_array($credentials) || empty($credentials['email']) || empty($credentials['password']) ) {
+        if (! is_array($credentials) || empty($credentials['email']) || empty($credentials['password'])) {
             throw new ShiprocketException('Invalid Credentials');
         }
 

@@ -12,5 +12,4 @@ interface Client
     public function post(array $data);
 
     public function patch(array $data);
-
 }

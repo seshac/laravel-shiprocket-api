@@ -14,6 +14,7 @@ class ChannelResource extends Resource
     public function get()
     {
         $endpoint = 'channels';
+
         return  $this->getRequest($endpoint);
     }
 }

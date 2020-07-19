@@ -3,7 +3,6 @@ namespace Seshac\Shiprocket\Resources;
 
 use Seshac\Shiprocket\Resources\Resource;
 
-
 class OrderResource extends Resource
 {
     /**
@@ -17,7 +16,7 @@ class OrderResource extends Resource
     {
         $endpoint = 'shipments/create/forward-shipment';
 
-        return $this->postRequest($endpoint,$order);
+        return $this->postRequest($endpoint, $order);
     }
 
     /**
@@ -35,7 +34,7 @@ class OrderResource extends Resource
             $endpoint = 'orders/create/adhoc';
         }
 
-        return $this->postRequest($endpoint,$order);
+        return $this->postRequest($endpoint, $order);
     }
 
     /**
@@ -48,7 +47,7 @@ class OrderResource extends Resource
     {
         $endpoint = 'orders/cancel';
 
-        return $this->postRequest($endpoint,$ids);
+        return $this->postRequest($endpoint, $ids);
     }
 
 
@@ -62,6 +61,6 @@ class OrderResource extends Resource
     {
         $endpoint = 'orders/address/pickup';
 
-        return $this->patchRequest($endpoint,$data);
+        return $this->patchRequest($endpoint, $data);
     }
 }

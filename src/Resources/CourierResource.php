@@ -15,7 +15,7 @@ class CourierResource extends Resource
     {
         $endpoint = 'courier/assign/awb';
 
-        return $this->postRequest($endpoint,$data);
+        return $this->postRequest($endpoint, $data);
     }
 
     /**
@@ -54,6 +54,6 @@ class CourierResource extends Resource
     {
         $endpoint = 'courier/generate/pickup';
 
-        return $this->postRequest($endpoint,$pickupDetails);
+        return $this->postRequest($endpoint, $pickupDetails);
     }
 }
