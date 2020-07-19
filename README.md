@@ -1,9 +1,10 @@
 # Shiprocket API (V1) Laravel SDK
-## Laravel SDK (module) for [Shiprocket API Version] 1(https://apidocs.shiprocket.in/?version=latest#intro). The integration of Shiprocket API in your laravel application is made easy.
+## Laravel SDK (module) for [Shiprocket API Version 1](https://apidocs.shiprocket.in/?version=latest#intro). The integration of Shiprocket API in your laravel application is made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/seshac/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/sesha/laravel-shiprocket-api)
 ![Psalm](https://github.com/seshac/laravel-shiprocket-api/workflows/Psalm/badge.svg?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/seshac/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/seshac/laravel-shiprocket-api)
+![Tests](https://github.com/seshac/laravel-shiprocket-api/workflows/Tests/badge.svg?branch=master)
 
 ## Index
 1. [Installation](https://github.com/seshac/laravel-shiprocket-api#installation)
@@ -127,7 +128,7 @@ $ids = [12345,12346];
 $response =  Shiprocket::order($token)->cancel($ids);
 ```
 
-### updatePickupLocation
+### Update pickup location
 https://apidocs.shiprocket.in/?version=latest#4ba045ab-e25b-4bb1-adbd-37bbd07b354e
  ```php   
 $orderDetails = [
