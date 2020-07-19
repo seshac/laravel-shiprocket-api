@@ -31,7 +31,7 @@ class GenerateResource
     }
 
     /**
-     * Mnaifest needs to be generated first in order for this API to print it. Use the 'Generate Manifest' API to do the same
+     * Print the Manifest (Mnaifest needs to be generated first in order for this API to print it. Use the 'Generate Manifest' API to do the same)
      *
      * @param array $orderIds
      * @return mixed

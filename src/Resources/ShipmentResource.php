@@ -16,7 +16,7 @@ class ShipmentResource
     }
 
     /**
-     *  Get the shipment details of all the shipments
+     *  Get the all shipment details
      *
      * @param array $extraParam
      * @return mixed

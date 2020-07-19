@@ -15,6 +15,12 @@ class PickupResource
         $this->token = $token;
     }
 
+    /**
+     * Add a New Pickup Location
+     *
+     * @param array $location
+     * @return mixed
+     */
     public function addLocation(array $location)
     {
         $endpoint = 'external/settings/company/addpickup';
@@ -24,6 +30,11 @@ class PickupResource
                         ->post($location);
     }
 
+    /**
+     * Get All Pickup Locations
+     *
+     * @return mixed
+     */
     public function getLocations()
     {
         $endpoint = 'external/settings/company/pickup';
