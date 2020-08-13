@@ -44,6 +44,7 @@ class ProductResource extends Resource
     public function create(array $productDetails)
     {
         $endpoint = "products";
+
         return $this->postRequest($endpoint, $productDetails);
     }
 }

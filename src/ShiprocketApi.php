@@ -126,7 +126,7 @@ class ShiprocketApi
 
     /**
      * Product related wrapper class
-     * 
+     *
      * @param string $token
      * @return mixed
      */
