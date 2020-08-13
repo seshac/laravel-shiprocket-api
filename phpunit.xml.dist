@@ -10,10 +10,6 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        To test feature folder tests need shiprocket API email and password.
-        <!-- <testsuite name="Shiprocket Features Test">
-            <directory>tests/Feature</directory>
-        </testsuite> -->
         <testsuite name="Shiprocket Unit Test">
             <directory>tests/Unit</directory>
         </testsuite>

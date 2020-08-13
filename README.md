@@ -17,6 +17,7 @@
     6. [Pickup Addresses](https://github.com/seshac/laravel-shiprocket-api#Pickup-Addresses)
     7. [Channels](https://github.com/seshac/laravel-shiprocket-api#Channels)
     8. [Manifest/Generate-Labels/Print-Invoice](https://github.com/seshac/laravel-shiprocket-api#Generate)  
+    9. [Products](https://github.com/seshac/laravel-shiprocket-api#Products)
 3. [Contributors](https://github.com/seshac/laravel-shiprocket-api#contributors)
 
 
@@ -285,6 +286,30 @@ https://apidocs.shiprocket.in/?version=latest#421f997f-1216-41e0-8c9b-433ddb666a
 ```php
 $orderIds = [ 'ids' => [121221,122112] ];
 $response = Shiprocket::generate($token)->invoice(orderIds);
+```
+
+## Products
+https://apidocs.shiprocket.in/?version=latest#5046ae90-2014-4453-90d5-2ce776567f47
+
+#### Get the all products
+https://apidocs.shiprocket.in/?version=latest#0b8d1f26-3abd-4f4e-9cd8-3928bcfcf30b
+```php
+ $filterParam = [];  // you can use sort, sort_by, filter,filter_by
+ $shipments = Shiprocket::product($token)->get();
+```
+#### Get the details of a specific Product
+https://apidocs.shiprocket.in/?version=latest#134f7710-660c-464f-b579-6da46ba9402f
+```php
+$productId = 1232122;
+$shipments = Shiprocket::product($token)->getSpecific($productId);
+```
+#### Add New Products
+https://apidocs.shiprocket.in/?version=latest#344b789d-584e-486a-a7a9-0cf33ce52bf3
+```php
+$productDetails = [
+    // refer above url for required parameters
+]; 
+$response = Shiprocket::product($token)->create($productDetails);
 ```
 
 ## Changelog

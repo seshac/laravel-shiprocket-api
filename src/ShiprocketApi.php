@@ -8,6 +8,7 @@ use Seshac\Shiprocket\Resources\CourierResource;
 use Seshac\Shiprocket\Resources\GenerateResource;
 use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Resources\PickupResource;
+use Seshac\Shiprocket\Resources\ProductResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
 use Seshac\Shiprocket\Resources\TrackingResource;
 use Seshac\Shiprocket\Traits\Authenticate;
@@ -121,5 +122,16 @@ class ShiprocketApi
     public function generate(string $token)
     {
         return new GenerateResource($this->client, $token);
+    }
+
+    /**
+     * Product related wrapper class
+     * 
+     * @param string $token
+     * @return mixed
+     */
+    public function product(string $token)
+    {
+        return new ProductResource($this->client, $token);
     }
 }
