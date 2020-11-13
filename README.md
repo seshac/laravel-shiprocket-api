@@ -324,8 +324,10 @@ $response = Shiprocket::product($token)->create($productDetails);
     'quantity' => 1, //Quantity in numbers
  ];  
  $response = Shiprocket::warehouse($this->token)->checkServiceability($filterParam);
+ 
+ // EX : https://apiv2.shiprocket.in/v1/warehouse/srf-serviceability?postcode=784001&sku=Baby-socket&quantity=1
+ // Response :  ['serviceability'=>true,'etd'=>'2020-12-06']
 ```
-
 
 ## Changelog
 
