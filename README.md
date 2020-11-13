@@ -312,6 +312,20 @@ $productDetails = [
 $response = Shiprocket::product($token)->create($productDetails);
 ```
 
+##Warehouse
+
+#### Check Warehouse SRF serviceabbility
+
+```php
+ $filterParam = [
+    'postcode' => 110030, // Delivery Post Code 
+    'sku' => "SKU name",
+    'quantity' => 1, //Quantity in numbers
+ ];  
+ $response = Shiprocket::warehouse($this->token)->checkServiceability($filterParam);
+```
+
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

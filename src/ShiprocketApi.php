@@ -11,6 +11,7 @@ use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ProductResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
 use Seshac\Shiprocket\Resources\TrackingResource;
+use Seshac\Shiprocket\Resources\WarehouseResource;
 use Seshac\Shiprocket\Traits\Authenticate;
 
 class ShiprocketApi
@@ -133,5 +134,16 @@ class ShiprocketApi
     public function product(string $token)
     {
         return new ProductResource($this->client, $token);
+    }
+
+    /**
+    * Courier related wrapper class
+    *
+    * @param string $token
+    * @return mixed
+    */
+    public function warehouse(string $token)
+    {
+        return new WarehouseResource($this->client, $token);
     }
 }

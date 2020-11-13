@@ -102,4 +102,13 @@ trait SampleData
             'weight' => '1',
         ];
     }
+    
+    public function sampleWarehouseCourierServiceable()
+    {
+        return [
+            'postcode' => 110030,
+            'sku' => "product name",
+            'quantity' => 1,
+        ];
+    }
 }

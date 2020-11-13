@@ -3,7 +3,7 @@ namespace Seshac\Shiprocket\Clients;
 
 class ShiprocketClient implements Client
 {
-    protected $url = 'https://apiv2.shiprocket.in/v1/external/';
+    protected $url = 'https://apiv2.shiprocket.in/v1/';
     
     protected $endpoint;
 
@@ -24,7 +24,11 @@ class ShiprocketClient implements Client
      */
     public function setEndpoint(string $endpoint) :object
     {
-        $this->endpoint = $this->url . $endpoint;
+        if (strpos($endpoint, 'warehouse') === false) {
+            $this->endpoint = $this->url . 'external/' .$endpoint;
+        } else {
+            $this->endpoint = $this->url .$endpoint;
+        }
 
         return $this;
     }
