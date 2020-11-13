@@ -18,6 +18,7 @@
     7. [Channels](https://github.com/seshac/laravel-shiprocket-api#Channels)
     8. [Manifest/Generate-Labels/Print-Invoice](https://github.com/seshac/laravel-shiprocket-api#Generate)  
     9. [Products](https://github.com/seshac/laravel-shiprocket-api#Products)
+    9. [Warehouse](https://github.com/seshac/laravel-shiprocket-api#Warehouse)
 3. [Contributors](https://github.com/seshac/laravel-shiprocket-api#contributors)
 
 
@@ -312,7 +313,7 @@ $productDetails = [
 $response = Shiprocket::product($token)->create($productDetails);
 ```
 
-##Warehouse
+## Warehouse
 
 #### Check Warehouse SRF serviceabbility
 
