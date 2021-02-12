@@ -75,6 +75,11 @@ return [
 
 ##### Get the login details
 ```php
+use Seshac\Shiprocket\Shiprocket;
+.
+.
+.
+
 $loginDetails =  Shiprocket::login([
     'email' => 'yourAPiMail@example.com', 
     'password' => 'example'
@@ -84,6 +89,11 @@ $loginDetails =  Shiprocket::login([
  Or 
  ##### Get the Token directly
 ```php
+use Seshac\Shiprocket\Shiprocket;
+.
+.
+.
+
 $token =  Shiprocket::token();//  if you added credentials at shiprocket.php config
 ``` 
 
