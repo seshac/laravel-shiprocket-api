@@ -94,7 +94,7 @@ use Seshac\Shiprocket\Shiprocket;
 .
 .
 
-$token =  Shiprocket::token();//  if you added credentials at shiprocket.php config
+$token =  Shiprocket::getToken();//  if you added credentials at shiprocket.php config
 ``` 
 
 
@@ -105,7 +105,7 @@ https://apidocs.shiprocket.in/?version=latest#247e58f3-37f3-4dfb-a4bb-b8f6ab6d41
 $orderDetails = [
     // refer above url for required parameters 
 ];
-$token =  Shiprocket::token();
+$token =  Shiprocket::getToken();
 $response =  Shiprocket::order($token)->create($orderDetails);
 ```
 
