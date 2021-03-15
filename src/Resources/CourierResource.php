@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Resources;
 
 use Seshac\Shiprocket\Resources\Resource;
@@ -19,7 +20,7 @@ class CourierResource extends Resource
     }
 
     /**
-     * Check the serviability for local pincode
+     * Check the Serviceability for local pincode
      *
      * @param array $data
      * @return mixed
@@ -39,7 +40,7 @@ class CourierResource extends Resource
      */
     public function checkInterNationalServiceability(array $params)
     {
-        $endpoint = 'courier/international/serviceability/?'. http_build_query($params);
+        $endpoint = 'courier/international/serviceability/?' . http_build_query($params);
 
         return $this->getRequest($endpoint);
     }

@@ -323,6 +323,37 @@ $productDetails = [
 $response = Shiprocket::product($token)->create($productDetails);
 ```
 
+## NDR Shipments
+
+#### Where you can get all the shipments that's are in NDR status
+
+```php
+ 
+ $response = Shiprocket::ndr($this->token)->getShipments();
+ 
+ // EX : GET : https://apiv2.shiprocket.in/v1/external/ndr/all where you can get all the shipments that are in NDR.
+```
+
+
+#### Where you can information of specific AWB which is in NDR
+
+```php
+ $awb_code = '0212331233322';
+ $response = Shiprocket::ndr($this->token)->getSpecificShipment($awb_code);
+ 
+ // GET :  https://apiv2.shiprocket.in/v1/external/ndr/{AWB} Where you can information of specific AWB which is in NDR
+```
+
+#### For open NDR where you can take action such as Reattempt, RTO :
+
+```php
+ $shipmentDetails = ['awb' => '', 'address_1' => '', 'address2' => '', 'phone' => ''];
+ $response = Shiprocket::ndr($this->token)->reattempt($shipmentDetails);
+ 
+ // POST : https://apiv2.shiprocket.in/v1/external/ndr/reattempt?awb=190729394&address1=Dr Nageshwar&address2=opposite Ashok Nagar&phone=9534952626&deferred_date=2020-08-27
+```
+
+
 ## Warehouse
 
 #### Check Warehouse SRF serviceabbility
