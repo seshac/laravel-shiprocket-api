@@ -2,24 +2,25 @@
 
 namespace Seshac\Shiprocket;
 
+use Seshac\Shiprocket\Traits\Authenticate;
+use Seshac\Shiprocket\Resources\NdrResource;
+use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Clients\ShiprocketClient;
+use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ChannelResource;
 use Seshac\Shiprocket\Resources\CourierResource;
-use Seshac\Shiprocket\Resources\GenerateResource;
-use Seshac\Shiprocket\Resources\OrderResource;
-use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ProductResource;
+use Seshac\Shiprocket\Resources\GenerateResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
 use Seshac\Shiprocket\Resources\TrackingResource;
 use Seshac\Shiprocket\Resources\WarehouseResource;
-use Seshac\Shiprocket\Traits\Authenticate;
 
 class ShiprocketApi
 {
     use Authenticate;
-    
+
     public $client;
-  
+
     public function __construct(ShiprocketClient $client)
     {
         $this->client = $client;
@@ -69,7 +70,7 @@ class ShiprocketApi
     {
         return new PickupResource($this->client, $token);
     }
-    
+
     /**
      * Courier related wrapper class
      *
@@ -137,13 +138,25 @@ class ShiprocketApi
     }
 
     /**
-    * Courier related wrapper class
-    *
-    * @param string $token
-    * @return mixed
-    */
+     * Courier related wrapper class
+     *
+     * @param string $token
+     * @return mixed
+     */
     public function warehouse(string $token)
     {
         return new WarehouseResource($this->client, $token);
+    }
+
+
+    /**
+     *  NDR related wrapper class
+     *
+     * @param string $token
+     * @return mixed
+     */
+    public function ndr(string $token)
+    {
+        return new NdrResource($this->client, $token);
     }
 }

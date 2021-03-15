@@ -14,9 +14,9 @@ return [
         'email' => env('SHIPROCKET_EMAIL', 'youemail@email.com'),
         'password' => env('SHIPROCKET_PASSWORD', 'secret'),
     ],
-  
 
-   /*
+
+    /*
     |--------------------------------------------------------------------------
     | Default output response type
     |--------------------------------------------------------------------------

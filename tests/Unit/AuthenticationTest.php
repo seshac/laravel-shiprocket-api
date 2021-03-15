@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Unit;
 
 use Seshac\Shiprocket\Exceptions\ShiprocketException;
@@ -8,15 +9,15 @@ use Seshac\Shiprocket\Tests\Traits\Authenticate;
 class AuthenticationTest extends TestCase
 {
     use Authenticate;
-    
+
     /** @test */
     public function it_could_not_be_instantiated_without_api_credentials()
     {
         config([
-      'shiprocket.credentials.email' => '',
-      'shiprocket.credentials.password' => '',
-    ]);
-    
+            'shiprocket.credentials.email' => '',
+            'shiprocket.credentials.password' => '',
+        ]);
+
         try {
             $this->getToken();
         } catch (ShiprocketException $exception) {
