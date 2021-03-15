@@ -2,18 +2,18 @@
 
 namespace Seshac\Shiprocket;
 
-use Seshac\Shiprocket\Traits\Authenticate;
-use Seshac\Shiprocket\Resources\NdrResource;
-use Seshac\Shiprocket\Resources\OrderResource;
 use Seshac\Shiprocket\Clients\ShiprocketClient;
-use Seshac\Shiprocket\Resources\PickupResource;
 use Seshac\Shiprocket\Resources\ChannelResource;
 use Seshac\Shiprocket\Resources\CourierResource;
-use Seshac\Shiprocket\Resources\ProductResource;
 use Seshac\Shiprocket\Resources\GenerateResource;
+use Seshac\Shiprocket\Resources\NdrResource;
+use Seshac\Shiprocket\Resources\OrderResource;
+use Seshac\Shiprocket\Resources\PickupResource;
+use Seshac\Shiprocket\Resources\ProductResource;
 use Seshac\Shiprocket\Resources\ShipmentResource;
 use Seshac\Shiprocket\Resources\TrackingResource;
 use Seshac\Shiprocket\Resources\WarehouseResource;
+use Seshac\Shiprocket\Traits\Authenticate;
 
 class ShiprocketApi
 {
