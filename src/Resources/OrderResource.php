@@ -63,4 +63,20 @@ class OrderResource extends Resource
 
         return $this->patchRequest($endpoint, $data);
     }
+    
+    /**
+     * Use this API to do multiple tasks in one go, namely getting order,
+     * just pass parameter and u will get result
+     * https://apidocs.shiprocket.in/#d4f48023-b0b2-40af-8072-1adf97227d21
+     * @param array $param
+     * @return mixed
+     */
+    public function getOrders(array $param)
+    {
+        $endpoint = 'orders';
+        if ($param) {
+            $endpoint = $endpoint . '?' .  http_build_query($param);
+        }
+        return $this->getRequest($endpoint, $param);
+    }
 }
