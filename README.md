@@ -98,7 +98,20 @@ $token =  Shiprocket::getToken();//  if you added credentials at shiprocket.php 
 ``` 
 
 
-## Orders 
+## Orders
+
+#### get all Orders
+https://apidocs.shiprocket.in/?version=latest#d4f48023-b0b2-40af-8072-1adf97227d21
+```php
+$token =  Shiprocket::getToken();
+$orderDetails = [
+        // refer above url for required parameters 
+        'per_page'=>20,
+    ];
+    $response =  Shiprocket::order($token)->getOrders($orderDetails);
+
+```
+
 #### Create Custom Order
 https://apidocs.shiprocket.in/?version=latest#247e58f3-37f3-4dfb-a4bb-b8f6ab6d41ec
 ```php
