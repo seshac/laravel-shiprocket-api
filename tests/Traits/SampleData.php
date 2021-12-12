@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Traits;
 
 use Illuminate\Foundation\Testing\WithFaker;
@@ -6,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 trait SampleData
 {
     use WithFaker;
+
     public function sampleOrder($pickupLocation)
     {
         return  [
@@ -102,7 +104,7 @@ trait SampleData
             'weight' => '1',
         ];
     }
-    
+
     public function sampleWarehouseCourierServiceable()
     {
         return [

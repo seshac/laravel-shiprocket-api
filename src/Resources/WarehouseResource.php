@@ -1,11 +1,9 @@
 <?php
-namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
+namespace Seshac\Shiprocket\Resources;
 
 class WarehouseResource extends Resource
 {
-    
     /**
      * Check the serviability for local pincode by warehouse
      *

@@ -1,7 +1,6 @@
 <?php
-namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
+namespace Seshac\Shiprocket\Resources;
 
 class OrderResource extends Resource
 {
@@ -50,7 +49,6 @@ class OrderResource extends Resource
         return $this->postRequest($endpoint, $ids);
     }
 
-
     /**
      * Update the pickup location
      *
@@ -63,7 +61,7 @@ class OrderResource extends Resource
 
         return $this->patchRequest($endpoint, $data);
     }
-    
+
     /**
      * Use this API to do multiple tasks in one go, namely getting order,
      * just pass parameter and u will get result
@@ -77,6 +75,7 @@ class OrderResource extends Resource
         if ($param) {
             $endpoint = $endpoint . '?' .  http_build_query($param);
         }
+
         return $this->getRequest($endpoint, $param);
     }
 }

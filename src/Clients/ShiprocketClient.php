@@ -1,10 +1,11 @@
 <?php
+
 namespace Seshac\Shiprocket\Clients;
 
 class ShiprocketClient implements Client
 {
     protected $url = 'https://apiv2.shiprocket.in/v1/';
-    
+
     protected $endpoint;
 
     protected $headers;
@@ -22,7 +23,7 @@ class ShiprocketClient implements Client
      * @param string $endpoint
      * @return object $this
      */
-    public function setEndpoint(string $endpoint) :object
+    public function setEndpoint(string $endpoint): object
     {
         if (strpos($endpoint, 'warehouse') === false) {
             $this->endpoint = $this->url . 'external/' .$endpoint;
@@ -39,13 +40,13 @@ class ShiprocketClient implements Client
      * @param string $token
      * @return object
      */
-    public function setHeaders(string $token) :object
+    public function setHeaders(string $token): object
     {
         $this->headers = [ "Content-Type: application/json" ];
         if ($token != 'login') {
             array_push($this->headers, "Authorization: Bearer {$token}");
         }
-        
+
         return $this;
     }
 
@@ -58,7 +59,7 @@ class ShiprocketClient implements Client
     public function post(array $data, $type = "POST")
     {
         $curl = curl_init();
-    
+
         curl_setopt_array($curl, [
             CURLOPT_URL => $this->endpoint,
             CURLOPT_RETURNTRANSFER => true,
@@ -132,12 +133,12 @@ class ShiprocketClient implements Client
      * @param mixed $string
      * @return bool
      */
-    private function isValid($string) :bool
+    private function isValid($string): bool
     {
         if (! $string) {
             return false;
         }
-        
+
         return json_decode($string) ? true : false;
     }
 
@@ -152,11 +153,11 @@ class ShiprocketClient implements Client
         if ($this->responseType == 'collection') {
             return collect(json_decode($response, true));
         }
-        
+
         if ($this->responseType == 'object') {
             return json_decode($response);
         }
-     
+
         return json_decode($response, true);
     }
 }

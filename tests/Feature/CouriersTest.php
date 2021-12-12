@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Feature;
 
 use Seshac\Shiprocket\Shiprocket;
@@ -8,7 +9,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class CouriersTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     protected $token;
 
@@ -41,7 +43,7 @@ class CouriersTest extends TestCase
         $order = Shiprocket::order($this->token)->create($sampleOrder);
 
         $response = Shiprocket::courier($this->token)->generateAWB(['shipment_id' => $order->get('shipment_id')]);
-        
+
         // This needs to complete KYC verification
         $this->assertNotEmpty($response);
     }

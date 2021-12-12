@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Traits;
 
 use Seshac\Shiprocket\Clients\Client;

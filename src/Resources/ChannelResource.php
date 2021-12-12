@@ -2,8 +2,6 @@
 
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
-
 class ChannelResource extends Resource
 {
     /**

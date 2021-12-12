@@ -3,7 +3,6 @@
 namespace Seshac\Shiprocket;
 
 use Illuminate\Support\ServiceProvider;
-use Seshac\Shiprocket\ShiprocketApi;
 
 class ShiprocketServiceProvider extends ServiceProvider
 {

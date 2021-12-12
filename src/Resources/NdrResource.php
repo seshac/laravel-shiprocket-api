@@ -2,8 +2,6 @@
 
 namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
-
 class NdrResource extends Resource
 {
     /**
@@ -30,7 +28,6 @@ class NdrResource extends Resource
 
         return $this->getRequest($endpoint);
     }
-
 
     /**
      * For open NDR where you can take action such as Reattempt, RTO.

@@ -8,7 +8,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class AuthenticateTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     /** @test */
     public function can_able_to_get_a_token_with_default_credentials()
