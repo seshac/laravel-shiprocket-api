@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Feature;
 
 use Seshac\Shiprocket\Shiprocket;
@@ -8,7 +9,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class WarehouseTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     protected $token;
 
@@ -26,7 +28,7 @@ class WarehouseTest extends TestCase
         $data = $this->sampleWarehouseCourierServiceable();
 
         $response = Shiprocket::warehouse($this->token)->checkServiceability($data);
-       
+
         $this->assertNotNull($response->pluck('data.serviceability'));
     }
 }

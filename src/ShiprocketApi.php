@@ -148,7 +148,6 @@ class ShiprocketApi
         return new WarehouseResource($this->client, $token);
     }
 
-
     /**
      *  NDR related wrapper class
      *

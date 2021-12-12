@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Feature;
 
 use Seshac\Shiprocket\Shiprocket;
@@ -8,7 +9,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class OrdersTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     protected $token;
 
@@ -19,7 +21,7 @@ class OrdersTest extends TestCase
         parent::setUp();
 
         $this->token = $this->getToken();
-        
+
         $this->locations = Shiprocket::pickup($this->token)->getLocations();
     }
 
@@ -27,7 +29,7 @@ class OrdersTest extends TestCase
     public function it_can_able_to_create_an_order()
     {
         $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
-       
+
         $order = Shiprocket::order($this->token)->create($sampleOrder);
 
         $this->assertArrayHasKey('shipment_id', $order);
@@ -39,9 +41,9 @@ class OrdersTest extends TestCase
     public function it_could_able_to_create_the_quick_order()
     {
         $sampleQuickOrder = $this->sampleQuickOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
-       
+
         $order = Shiprocket::order($this->token)->quickCreate($sampleQuickOrder);
-        
+
         // This needs to complete KYC verification
 
         $this->assertNotEmpty($order);
@@ -51,14 +53,14 @@ class OrdersTest extends TestCase
     public function it_can_able_to_cancel_an_order()
     {
         $sampleOrder = $this->sampleOrder($this->locations->pull('data.shipping_address.0.pickup_location'));
-        
+
         $order = Shiprocket::order($this->token)->create($sampleOrder);
-       
+
         $cancelOrder = Shiprocket::order($this->token)->cancel([ 'ids' => [$order->get('order_id')] ]);
-       
+
         $this->assertEquals('Order cancelled successfully.', $cancelOrder->get('message'));
     }
-     
+
     /** Todo */
     public function it_can_able_to_change_the_pickup_location()
     {

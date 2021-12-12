@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Tests\Traits;
 
 use Seshac\Shiprocket\Shiprocket;

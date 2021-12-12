@@ -1,8 +1,8 @@
 <?php
+
 namespace Seshac\Shiprocket\Resources;
 
 use Seshac\Shiprocket\Clients\Client;
-use Seshac\Shiprocket\Resources\ResourceInterface;
 
 abstract class Resource implements ResourceInterface
 {

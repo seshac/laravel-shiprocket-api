@@ -9,7 +9,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class ChannelTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     /** @test */
     public function it_can_able_to_get_the_integrated_channels()

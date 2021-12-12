@@ -1,7 +1,6 @@
 <?php
-namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
+namespace Seshac\Shiprocket\Resources;
 
 class GenerateResource extends Resource
 {
@@ -43,7 +42,7 @@ class GenerateResource extends Resource
 
         return $this->postRequest($endpoint, $shipmentIds);
     }
-    
+
     /**
      * Generate the invoice for you're order.
      *

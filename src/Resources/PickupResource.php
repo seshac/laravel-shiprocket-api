@@ -1,7 +1,6 @@
 <?php
-namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
+namespace Seshac\Shiprocket\Resources;
 
 class PickupResource extends Resource
 {

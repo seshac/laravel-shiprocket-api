@@ -9,7 +9,8 @@ use Seshac\Shiprocket\Tests\Traits\SampleData;
 
 class NdrShipmentsTest extends TestCase
 {
-    use SampleData, Authenticate;
+    use SampleData;
+    use Authenticate;
 
     protected $token;
 

@@ -1,7 +1,6 @@
 <?php
-namespace Seshac\Shiprocket\Resources;
 
-use Seshac\Shiprocket\Resources\Resource;
+namespace Seshac\Shiprocket\Resources;
 
 class TrackingResource extends Resource
 {
@@ -17,7 +16,6 @@ class TrackingResource extends Resource
         return $this->getRequest($endpoint);
     }
 
-
     /**
      * Get the tracking details of multiple shipments by using AWB codes together as an array.
      *
@@ -30,7 +28,7 @@ class TrackingResource extends Resource
 
         return $this->postRequest($endpoint, $awbs);
     }
-    
+
     /**
      * Get the tracking details of shipment by using the ShipmentId
      *

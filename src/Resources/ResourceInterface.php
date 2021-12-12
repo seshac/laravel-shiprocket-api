@@ -1,4 +1,5 @@
 <?php
+
 namespace Seshac\Shiprocket\Resources;
 
 interface ResourceInterface
