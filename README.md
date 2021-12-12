@@ -2,7 +2,6 @@
 ## Laravel SDK (module) for [Shiprocket API Version 1](https://apidocs.shiprocket.in/?version=latest#intro). The integration of Shiprocket API in your laravel application is made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/seshac/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/seshac/laravel-shiprocket-api)
-![Psalm](https://github.com/seshac/laravel-shiprocket-api/workflows/Psalm/badge.svg?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/seshac/laravel-shiprocket-api.svg?style=flat-square)](https://packagist.org/packages/seshac/laravel-shiprocket-api)
 ![Tests](https://github.com/seshac/laravel-shiprocket-api/workflows/Tests/badge.svg?branch=master)
 
@@ -20,7 +19,6 @@
     9. [Products](https://github.com/seshac/laravel-shiprocket-api#Products)
     9. [Warehouse](https://github.com/seshac/laravel-shiprocket-api#Warehouse)
 3. [Contributors](https://github.com/seshac/laravel-shiprocket-api#contributors)
-
 
 ## Installation
 
