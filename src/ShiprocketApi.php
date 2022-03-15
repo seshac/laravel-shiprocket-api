@@ -45,8 +45,13 @@ class ShiprocketApi
      */
     public function getToken($credentials = null)
     {
-        return $this->auth($this->client, $credentials)
-            ->get('token');
+            $data = $this->auth($this->client, $credentials);
+
+            if (isset($data->token)) return $data->token;
+
+            if (isset($data['token'])) return $data['token'];
+            
+            return $data->get('token');
     }
 
     /**
