@@ -148,7 +148,7 @@ $response =  Shiprocket::order($token)->quickCreate($orderDetails);
 https://apidocs.shiprocket.in/?version=latest#5c0e41ca-d868-44c4-8ddb-73a8de239401
 ```php
 $ids = [12345,12346]; 
-$response =  Shiprocket::order($token)->cancel($ids);
+$response =  Shiprocket::order($token)->cancel(['ids' => $ids]);
 ```
 
 ### Update pickup location
