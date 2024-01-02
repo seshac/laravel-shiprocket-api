@@ -110,6 +110,15 @@ $orderDetails = [
 
 ```
 
+#### Get specific Order
+https://apidocs.shiprocket.in/?version=latest#aa23cc40-6ee8-4ce0-b0ab-1a7291514299
+```php
+$token =  Shiprocket::getToken();
+$orderId = 16167171;
+$response =  Shiprocket::order($token)->find($orderId);
+
+```
+
 #### Create Custom Order
 https://apidocs.shiprocket.in/?version=latest#247e58f3-37f3-4dfb-a4bb-b8f6ab6d41ec
 ```php

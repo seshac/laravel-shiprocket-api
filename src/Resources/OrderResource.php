@@ -78,4 +78,17 @@ class OrderResource extends Resource
 
         return $this->getRequest($endpoint, $param);
     }
+
+    /**
+     * Use this API to get a single order by order id
+     * https://apidocs.shiprocket.in/?version=latest#aa23cc40-6ee8-4ce0-b0ab-1a7291514299
+     * @param int $id
+     * @return mixed
+     */
+    public function find(int $id)
+    {
+        $endpoint = "orders/show/$id";
+
+        return $this->getRequest($endpoint);
+    }
 }
